@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ChatterBot</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    </head>
+    <body>
+        
+        <img src="{{url_for('static', filename='ChatterBotLogo.png')}}" align="middle" />
+
+        <br>
+        
+        <form action="convert" method="post">
+        <!-- action attribute is needed to store user input into phrase variable
+            phrase is used in python file-->
+            <!-- method attribute sends data to server -->
+
+        {% for message in get_flashed_messages()%}
+            <p>{{message}}</p>
+        {% endfor %}
+        <br>
+        <input type="text" name="phrase_input">
+        <!-- Collcts input from user-->
+        <br>
+        <input type="submit" value="Ingresar" id="convert">
+            <!-- This is how to create a button in forms, id needed to customize button-->
+    </body>
+</html>
